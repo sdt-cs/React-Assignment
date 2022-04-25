@@ -54,8 +54,8 @@ const Dashboard = () => {
                     </tbody>
 
                 </table>
-                <button class="login d-inline w-25 m-2 btn btn-success" onClick={()=>{backData()}}>Go Back</button> 
-                <button class="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{task()}}>Task Mangement</button>  
+                <button className="login d-inline w-25 m-2 btn btn-success" onClick={()=>{backData()}}>Go Back</button> 
+                <button className="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{task()}}>Task Mangement</button>  
             </center>
         </div>
     )

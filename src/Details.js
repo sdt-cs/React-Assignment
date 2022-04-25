@@ -74,14 +74,14 @@ const Details = () => {
                                 <td>{data.password}</td>
                             </tr>
                             <tr>
-                                <th colspan="2">  <button class="login d-inline w-25 m-2 btn btn-warning" onClick={() => { logout() }}>Logout</button> </th>
+                                <th colSpan="2">  <button className="login d-inline w-25 m-2 btn btn-warning" onClick={() => { logout() }}>Logout</button> </th>
                             </tr>
 
 
                         </table>
                         <div>
-                            <button class="login d-inline w-25 m-2 btn btn-success" onClick={() => { backData() }}>Go Back</button>
-                            <button class="login d-inline w-25 m-2 btn btn btn-success" onClick={() => { dashboard() }}>Dashboard</button>
+                            <button className="login d-inline w-25 m-2 btn btn-success" onClick={() => { backData() }}>Go Back</button>
+                            <button className="login d-inline w-25 m-2 btn btn btn-success" onClick={() => { dashboard() }}>Dashboard</button>
                         </div>
 
 

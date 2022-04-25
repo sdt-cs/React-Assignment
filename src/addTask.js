@@ -67,43 +67,43 @@ const AddTask = () => {
     return (
         <div>
             <form action="#">
-                <section class="bg">
-                    <div class="content">
-                        <div class="from-content">
-                            <h1><div class="user">Create New Task</div></h1>
-                            <span className="text-primary">{(status) ? 'Task has been created...' : ''}</span>
-                            <div class="from">
+                <section className="bg">
+                    <div className="content">
+                        <div className="from-content">
+                            <h1><div className="user">Create New Task</div></h1>
+                            <span classNameName="text-primary">{(status) ? 'Task has been created...' : ''}</span>
+                            <div className="from">
                                 
 
-                            <div class="form-group">
-                                <label for="name" class="float-left">Task Name</label>
-                                <input type="text" class="form-control" id="name" name="name" value={task.name}  placeholder="Name" data-text="Please enter a name." onChange={handleInput} required />
+                            <div className="form-group">
+                                <label for="name" className="float-left">Task Name</label>
+                                <input type="text" className="form-control" id="name" name="name" value={task.name}  placeholder="Name" data-text="Please enter a name." onChange={handleInput} required />
                             </div>
 
-                            <div class="form-group">
-                                <label for="priority" class="float-left">Priority</label>
-                                <input type="text" class="form-control" id="priority" name="priority" value={task.priority}  placeholder="High/Medium/Low"  onChange={handleInput} data-text="Please enter a priority." required />
+                            <div className="form-group">
+                                <label for="priority" className="float-left">Priority</label>
+                                <input type="text" className="form-control" id="priority" name="priority" value={task.priority}  placeholder="High/Medium/Low"  onChange={handleInput} data-text="Please enter a priority." required />
                             </div>
 
-                            <div class="form-group">
-                                <label for="stage" class="float-left">Stage</label>
-                                <input type="text" class="form-control" id="stage" name="stage" value={task.stage}  placeholder="Backlog/To Do/Ongoing/Done"  onChange={handleInput} data-text="Please enter a stage."
+                            <div className="form-group">
+                                <label for="stage" className="float-left">Stage</label>
+                                <input type="text" className="form-control" id="stage" name="stage" value={task.stage}  placeholder="Backlog/To Do/Ongoing/Done"  onChange={handleInput} data-text="Please enter a stage."
                                         required />
                             </div>
 
-                            <div class="form-group">
-                                <label for="deadline" class="float-left">Deadline</label>
-                                <input type="date" class="form-control" id="deadline" name="deadline" value={task.deadline} autoComplete='off' placeholder="dd/mm/yyyy"  onChange={handleInput} data-text="Please enter a date."
+                            <div className="form-group">
+                                <label for="deadline" className="float-left">Deadline</label>
+                                <input type="date" className="form-control" id="deadline" name="deadline" value={task.deadline} autoComplete='off' placeholder="dd/mm/yyyy"  onChange={handleInput} data-text="Please enter a date."
                                         required />
                             </div>
                                 
-                                <p class="error-message">&nbsp;</p>
-                                <p class="tip signup-tip">
+                                <p className="error-message">&nbsp;</p>
+                                <p className="tip signup-tip">
                                 </p>
-                                <div class="submit-btn">
-                                    <button class="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{backData()}}>Go Back</button>
-                                    <button id="login" class="login d-inline w-50 m-2 btn btn btn-success" onClick={handleSubmit}>Create Task</button>
-                                    <span className="text-primary">{(status) ? <button id="login" class="login d-inline w-50 m-2 btn btn btn-success" onClick={viewTask}>View Task</button> : ''}</span>
+                                <div className="submit-btn">
+                                    <button className="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{backData()}}>Go Back</button>
+                                    <button id="login" className="login d-inline w-50 m-2 btn btn btn-success" onClick={handleSubmit}>Create Task</button>
+                                    <span classNameName="text-primary">{(status) ? <button id="login" className="login d-inline w-50 m-2 btn btn btn-success" onClick={viewTask}>View Task</button> : ''}</span>
                                 </div>
                             </div>
                         </div>

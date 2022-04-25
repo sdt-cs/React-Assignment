@@ -58,27 +58,27 @@ const Auth = () => {
     <div>
       
       <form action="" onSubmit={handleSubmit}>
-        <section class="bg">
-          <div class="contentForm">
-            <div class="from-content">
-              <h1><div class="user">User Login</div></h1>
-              <div class="from">
-              <span class="text-danger float-left" id="status">{(status === true) ? "username does't exist." : ''}</span>
-                <div class="from-list">
+        <section className="bg">
+          <div className="contentForm">
+            <div className="from-content">
+              <h1><div className="user">User Login</div></h1>
+              <div className="from">
+              <span className="text-danger float-left" id="status">{(status === true) ? "username does't exist." : ''}</span>
+                <div className="from-list">
                   <input type="text" id="email" name="email" placeholder="Email" data-text="Please enter a valid email address." onChange={(e)=>{setEmail(e.target.value)}} required />
                 </div>
-                <div class="from-list">
+                <div className="from-list">
                   <input type="password" id="password" name="email" placeholder="Password" data-text="The password must be between 6-20 characters long." onChange={(e)=>{setPassword(e.target.value)}}  required />
                 </div>
                 
-                <p class="error-message">&nbsp;</p>
-                <div class="submit-btn">
-                    <button class="login d-inline w-25 m-2 btn btn-outline-info" onClick={()=>{backData()}}>Go Back</button> 
+                <p className="error-message">&nbsp;</p>
+                <div className="submit-btn">
+                    <button className="login d-inline w-25 m-2 btn btn-outline-info" onClick={()=>{backData()}}>Go Back</button> 
                     
-                    <button class="login d-inline w-25 m-2 btn btn-outline-info">Sign in</button>
+                    <button className="login d-inline w-25 m-2 btn btn-outline-info">Sign in</button>
                     
                 </div>
-                <p class="tip signup-tip">
+                <p className="tip signup-tip">
                   {/* <Router>
                     <Link to="/Signup">Sign up</Link>
 

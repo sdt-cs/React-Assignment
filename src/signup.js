@@ -1,11 +1,9 @@
 import React,{useState} from 'react';
-import Auth from './Auth';
+
 import {
-  BrowserRouter as Router,
-  Routes,
+
   useNavigate,
-  Route,
-  Link
+ 
 } from "react-router-dom";
 
 const Signup = () =>{
@@ -57,35 +55,35 @@ const Signup = () =>{
     return(
         <div>  
           <form action="" onSubmit={handleSubmit}>
-            <section class="bg">
-                <div class="content">
-                  <div class="from-content">
-                    <h1><div class="user">Registration Form</div></h1>
-                    <span class="text-primary">{(status === true) ? "You have successfully registered..." : ''}</span>
-                    <div class="from">
-                    <div class="from-list">
+            <section className="bg">
+                <div className="content">
+                  <div className="from-content">
+                    <h1><div className="user">Registration Form</div></h1>
+                    <span className="text-primary">{(status === true) ? "You have successfully registered..." : ''}</span>
+                    <div className="from">
+                    <div className="from-list">
                         <input type="text" id="name" name="name" autoComplete='off' placeholder="Name" data-text="Please enter a name." 
                         value={userRegistration.name} onChange={handleInput} required />
                       </div>
-                      <div class="from-list">
+                      <div className="from-list">
                         <input type="text" id="username" name="username" autoComplete='off' placeholder="Username" data-text="Please enter a user name." value={userRegistration.username} onChange={handleInput} required />
                       </div>
-                      <div class="from-list">
+                      <div className="from-list">
                         <input type="text" id="email" name="email" autoComplete='off' placeholder="Email" data-text="Please enter a valid email address." value={userRegistration.email} onChange={handleInput} required />
                       </div>
 
-                      <div class="from-list">
+                      <div className="from-list">
                         <input type="Number" id="phone" name="phone" autoComplete='off' placeholder="Contact Number" data-text="Please enter a valid phone number." value={userRegistration.phone} onChange={handleInput} required />
                       </div>
-                      <div class="from-list">
+                      <div className="from-list">
                         <input type="password" id="password" name="password" autoComplete='off' placeholder="Password" data-text="The password must be between 6-20 characters long." value={userRegistration.password} onChange={handleInput} required />
                       </div>
-                      <p class="error-message">&nbsp;</p>
-                      <p class="tip signup-tip">
+                      <p className="error-message">&nbsp;</p>
+                      <p className="tip signup-tip">
                       </p>
-                      <div class="submit-btn">
-                        <button class="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{backData()}}>Go Back</button> 
-                        <button id="login" class="d-inline w-25 m-2 btn btn btn-success">Register</button>
+                      <div className="submit-btn">
+                        <button className="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{backData()}}>Go Back</button> 
+                        <button id="login" className="d-inline w-25 m-2 btn btn btn-success">Register</button>
                       </div>
                     </div>
                   </div>

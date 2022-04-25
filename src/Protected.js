@@ -13,7 +13,7 @@ const Protect = (props) => {
     return(
         <div>
             <h3 className="text-danger">Please login first...</h3>
-            <div><button class="login d-inline w-25 m-2 btn btn-success" onClick={()=>{login()}}>Login</button> </div>
+            <div><button className="login d-inline w-25 m-2 btn btn-success" onClick={()=>{login()}}>Login</button> </div>
         </div>
     )
 }

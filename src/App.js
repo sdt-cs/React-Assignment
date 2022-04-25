@@ -26,6 +26,7 @@ function App() {
 
         <Routes>
           <Route path="" element={<Login />} />
+
           <Route path="/app" element={<Login />} />
           <Route path="/app/auth" element={<Auth />} />
           <Route path="/auth" element={<Auth />} />
@@ -35,6 +36,7 @@ function App() {
           <Route path="addTask" element={<AddTask />} />
           <Route path="task" element={<Task />} />
           <Route path="Signup" element={<Signup />} />
+          <Route path="/app/Signup" element={<Signup />} />
         
         </Routes>
     </div>
