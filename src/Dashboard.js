@@ -8,11 +8,40 @@ import {
 const Dashboard = () => {
 
     const navigate = useNavigate();
-   
-    console.log('Dashboard');
-    let data = JSON.parse(localStorage.getItem('login'))
+
+    const [dataTask,setDataTask] = useState([]);
+    const [total,setTotal] = useState(0)
+    const [complete,setCompete] = useState(0);
+    const [pending,setPending] = useState(0);
     
-   
+    let loginData = JSON.parse(localStorage.getItem('login'))
+    
+    let data = localStorage.getItem('data') && JSON.parse(localStorage.getItem('task')); 
+
+    useEffect(()=>{
+        if(dataTask.length === 0) {
+            setDataTask({...dataTask,data})
+        }
+    },[dataTask])
+
+    if(data.length > 0) {
+       
+        console.log(dataTask.data);
+        dataTask.data && dataTask.data.map((item,i)=>{
+            if(item.stage === 'Done') {
+                if(complete == 0)
+                setCompete(complete + 1)
+            } else if(item.stage == 'To Do' || item.stage == 'Ongoing' || item.stage == 'Backlog') {
+                if(pending == 0)
+                setPending(pending + 1)
+            }
+        })
+
+
+        
+        
+    } 
+    
 
     function backData(){
         navigate('/auth/details');
@@ -43,10 +72,10 @@ const Dashboard = () => {
                         {
                             
                                 <tr>
-                                    <td scope="col">{data.name}</td>
-                                    <td scope="col">{5}</td>
-                                    <td scope="col">{3}</td>
-                                    <td scope="col">{2}</td>
+                                    <td scope="col">{loginData.name}</td>
+                                    <td scope="col">{(dataTask.data) ? dataTask.data.length : '0'}</td>
+                                    <td scope="col">{complete}</td>
+                                    <td scope="col">{pending}</td>
                                    
                                 </tr>
                             

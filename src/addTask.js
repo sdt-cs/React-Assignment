@@ -71,7 +71,7 @@ const AddTask = () => {
                     <div className="content">
                         <div className="from-content">
                             <h1><div className="user">Create New Task</div></h1>
-                            <span classNameName="text-primary">{(status) ? 'Task has been created...' : ''}</span>
+                            <span className="text-primary">{(status) ? 'Task has been created...' : ''}</span>
                             <div className="from">
                                 
 
@@ -103,7 +103,7 @@ const AddTask = () => {
                                 <div className="submit-btn">
                                     <button className="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{backData()}}>Go Back</button>
                                     <button id="login" className="login d-inline w-50 m-2 btn btn btn-success" onClick={handleSubmit}>Create Task</button>
-                                    <span classNameName="text-primary">{(status) ? <button id="login" className="login d-inline w-50 m-2 btn btn btn-success" onClick={viewTask}>View Task</button> : ''}</span>
+                                    <span className="text-primary">{(status) ? <button id="login" className="login d-inline w-50 m-2 btn btn btn-success" onClick={viewTask}>View Task</button> : ''}</span>
                                 </div>
                             </div>
                         </div>
