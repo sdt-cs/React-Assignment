@@ -21,21 +21,28 @@ const Dashboard = () => {
     useEffect(()=>{
         if(dataTask.length === 0) {
             setDataTask({...dataTask,data})
+            
         }
     },[dataTask])
 
+    let completeData = 0;
+    let pendingData = 0;
     if(data.length > 0) {
        
         console.log(dataTask.data);
         dataTask.data && dataTask.data.map((item,i)=>{
             if(item.stage === 'Done') {
-                if(complete == 0)
-                setCompete(complete + 1)
+                
+                completeData = completeData + 1;
             } else if(item.stage == 'To Do' || item.stage == 'Ongoing' || item.stage == 'Backlog') {
-                if(pending == 0)
-                setPending(pending + 1)
+                
+                pendingData = pendingData + 1;
             }
         })
+
+       
+
+      
 
 
         
@@ -74,8 +81,8 @@ const Dashboard = () => {
                                 <tr>
                                     <td scope="col">{loginData.name}</td>
                                     <td scope="col">{(dataTask.data) ? dataTask.data.length : '0'}</td>
-                                    <td scope="col">{complete}</td>
-                                    <td scope="col">{pending}</td>
+                                    <td scope="col">{completeData}</td>
+                                    <td scope="col">{pendingData}</td>
                                    
                                 </tr>
                             
