@@ -1,10 +1,6 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 
-import {
-
-  useNavigate,
- 
-} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () =>{
   const [userRegistration,setUserRegistration] = useState({
@@ -31,6 +27,8 @@ const Signup = () =>{
     navigate('/app');
   }
 
+ 
+
   function handleInput(e){
     const name = e.target.name;
     const value = e.target.value;
@@ -38,17 +36,20 @@ const Signup = () =>{
     setUserRegistration({...userRegistration, [name]: value})
   }
 
+
+  useEffect(()=>{
+    if(records.length > 0) {
+      console.log(records);
+      localStorage.setItem("data",JSON.stringify(records));
+      setStatus(true);
+    }
+  },[records])
+
   function handleSubmit(e) {
     e.preventDefault();
-
     const newRecords = {...userRegistration,id:new Date().getTime().toString()};
    // console.log(records);  
     setRecords([...records, newRecords]);
-    console.log(records);  
-    setTimeout(function(){
-      localStorage.setItem("data",JSON.stringify(records));
-      setStatus(true);
-    },50)
     
   }
 

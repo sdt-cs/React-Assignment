@@ -14,17 +14,14 @@ import Task from './Task';
 
 function Login() {
 
-    
-
-   
     return (
         <>
                 <div className="App text-center">
 
                     {/* <Details /> */}
                     <div className="d-flex justify-content-center btnStyle">
-                        <Link to="auth"><button type="button" class="btn btn-outline-info m-2 btnS">Login</button></Link>
-                        <Link to="Signup"><button type="button" class="btn btn-outline-info m-2 btnS">Signup</button></Link>
+                        <Link to="auth"><button type="button" className="btn btn-outline-info m-2 btnS">Login</button></Link>
+                        <Link to="Signup"><button type="button" className="btn btn-outline-info m-2 btnS">Signup</button></Link>
                     </div>
                 </div>
         </>
