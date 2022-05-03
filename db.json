@@ -1,0 +1,61 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "users": [
+    {
+      "id": 2,
+      "name": "amit ",
+      "username": "amit01",
+      "email": "amit@gmail.com",
+      "phone": "9887767667",
+      "password": "123456"
+    }
+  ],
+  "loginStatus": [
+    {
+      "id": 1,
+      "Status": true
+    }
+  ],
+  "loginUser": [
+    {
+      "id": 2,
+      "name": "amit ",
+      "username": "amit01",
+      "email": "amit@gmail.com",
+      "phone": "9887767667",
+      "password": "123456"
+    }
+  ],
+  "task": [
+    {
+      "name": "Assignment 1",
+      "priority": "Low",
+      "stage": "To Do",
+      "deadline": "2022-05-03",
+      "email": "amit@gmail.com",
+      "id": 3
+    },
+    {
+      "name": "Assignment 2",
+      "priority": "Medium",
+      "stage": "Backlog",
+      "deadline": "2022-05-03",
+      "email": "amit@gmail.com",
+      "id": 4
+    },
+    {
+      "name": "Assignment 3",
+      "priority": "High",
+      "stage": "Done",
+      "deadline": "2022-05-03",
+      "email": "amit@gmail.com",
+      "id": 5
+    }
+  ]
+}
