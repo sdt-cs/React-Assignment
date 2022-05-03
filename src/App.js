@@ -1,11 +1,8 @@
+import React, { Suspense, lazy } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Auth from './Auth';
-import Signup from './signup'
-import Details from './Details';
-import AddTask from './addTask';
-
-//import Protect from './protected';
+import LogoImage from './neosoft.png';
+//import Component from './Component';
 import {
   BrowserRouter as Router,
   Switch,
@@ -13,32 +10,22 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Dashboard from './Dashboard';
-import Task from './Task';
-import Login from './Login';
+
+const Component = lazy(() => import('./Component'));
+
 
 function App() {
-  console.log('Path =>',window.location.pathname === '/app');
+
   return (
-    <div className="App text-center">
-      
-      {/* <Details /> */}
+    <div> 
+      {/* <img src={LogoImage} alt="Logo Image" height="60px;" width="200px" /> */}
 
-        <Routes>
-          <Route path="" element={<Login />} />
-
-          <Route path="/app" element={<Login />} />
-          <Route path="/app/auth" element={<Auth />} />
-          <Route path="/auth" element={<Auth />} />
-            
-          <Route path="auth/details" element={<Details />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="addTask" element={<AddTask />} />
-          <Route path="task" element={<Task />} />
-          <Route path="Signup" element={<Signup />} />
-          <Route path="/app/Signup" element={<Signup />} />
+        <div className="App text-center">
         
-        </Routes>
+            <Suspense fallback={<div>Please wait...Lazy load is working now.</div>}>
+                <Component />
+            </Suspense>
+        </div>
     </div>
   );
 }

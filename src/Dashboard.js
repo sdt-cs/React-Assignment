@@ -3,6 +3,7 @@ import './App.css';
 import {
     useNavigate,
 } from "react-router-dom";
+import Protect from './Protected';
 
 
 const Dashboard = () => {
@@ -10,44 +11,59 @@ const Dashboard = () => {
     const navigate = useNavigate();
 
     const [dataTask,setDataTask] = useState([]);
-    const [total,setTotal] = useState(0)
-    const [complete,setCompete] = useState(0);
-    const [pending,setPending] = useState(0);
-    
-    let loginData = JSON.parse(localStorage.getItem('login'))
-    
-    let data = localStorage.getItem('data') && JSON.parse(localStorage.getItem('task')); 
+    const [login,loginStatus] = useState(false);
+    const [loginUser,setLoginUser] = useState()
 
-    useEffect(()=>{
-        if(dataTask.length === 0) {
-            setDataTask({...dataTask,data})
-            
-        }
-    },[dataTask])
+
+    async function getTask() {
+        await fetch('http://localhost:3000/task').then(res => res.json()).then((res)=>{
+            setDataTask(res)
+        })
+    }
+
+    async function getLogin() {
+        await fetch('http://localhost:3000/loginUser').then(res => res.json()).then((res)=>{
+            if(res.length > 0) {
+                setLoginUser(res);
+                console.log(res);
+                loginStatus(true);
+            } else {
+                loginStatus(false);
+            }
+        })
+        
+    }
 
     let completeData = 0;
     let pendingData = 0;
-    if(data.length > 0) {
-       
-        console.log(dataTask.data);
-        dataTask.data && dataTask.data.map((item,i)=>{
-            if(item.stage === 'Done') {
-                
+    let totalTask = 0;
+    useEffect(() => {
+        if (dataTask.length == 0) {
+            getTask();
+            getLogin();
+        }
+        if(dataTask.length>0)
+        console.log('dataTask',dataTask);
+
+            //console.log(dataTask);
+  
+    },[])
+
+
+    dataTask.map((item,i)=>{
+        // console.log('Test',item.email);
+        // console.log(loginUser[0]?.email);
+        if(loginUser && item.email == loginUser[0].email) {
+            if(item.stage === 'Done' ) {
+            
                 completeData = completeData + 1;
-            } else if(item.stage == 'To Do' || item.stage == 'Ongoing' || item.stage == 'Backlog') {
-                
+                totalTask = totalTask + 1;
+            } else if(item.stage.toLowerCase() == 'to do' || item.stage.toLowerCase() == 'ongoing' || item.stage.toLowerCase() == 'backlog') {
+                totalTask = totalTask + 1;
                 pendingData = pendingData + 1;
             }
-        })
-
-       
-
-      
-
-
-        
-        
-    } 
+        }
+    })
     
 
     function backData(){
@@ -63,12 +79,14 @@ const Dashboard = () => {
     return (
         
         <div className="">
+       
+        {(login == true) ? 
             <center>
                 <h2 className="text-white">User Dashboard</h2>
                 <table className="table table-dark table-striped w-75">
                     <thead>
                         <tr>
-                            <th scope="col">Name</th>
+                            
                             <th scope="col">Total Task</th>
                             <th scope="col">Total Complete</th>
                             <th scope="col">Pending Task</th>
@@ -79,8 +97,8 @@ const Dashboard = () => {
                         {
                             
                                 <tr>
-                                    <td scope="col">{loginData.name}</td>
-                                    <td scope="col">{(dataTask.data) ? dataTask.data.length : '0'}</td>
+                                   
+                                    <td scope="col">{(dataTask.length > 0) ? totalTask : 0}</td>
                                     <td scope="col">{completeData}</td>
                                     <td scope="col">{pendingData}</td>
                                    
@@ -93,6 +111,9 @@ const Dashboard = () => {
                 <button className="login d-inline w-25 m-2 btn btn-success" onClick={()=>{backData()}}>Go Back</button> 
                 <button className="login d-inline w-25 m-2 btn btn btn-success" onClick={()=>{task()}}>Task Mangement</button>  
             </center>
+            : <Protect />
+        }
+            
         </div>
     )
 
